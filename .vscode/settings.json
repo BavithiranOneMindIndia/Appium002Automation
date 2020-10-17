@@ -1,3 +1,8 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\path\\to\\jarfile\\commons-logging-1.1.1.jar",
+        "c:\\path\\to\\jarfile\\poi-3.9.jar"
+    ]
 }

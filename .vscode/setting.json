@@ -1,0 +1,10 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\path\\to\\jarfile\\commons-logging-1.1.1.jar",
+        "c:\\path\\to\\jarfile\\selenium-api-3.14.0.jar",
+        "c:\\path\\to\\jarfile\\selenium-chrome-driver-3.14.0.jar",
+        "C:\\path\\to\\jarfile\\poi-3.9.jar"
+    ]
+}
+
