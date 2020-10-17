@@ -1,15 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: AppiumPackage002GroupId.AppiumTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 21.316 s <<< FAILURE! - in AppiumPackage002GroupId.AppiumTest
-setup(AppiumPackage002GroupId.AppiumTest)  Time elapsed: 21.094 s  <<< FAILURE!
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 33.778 s <<< FAILURE! - in AppiumPackage002GroupId.AppiumTest
+setup(AppiumPackage002GroupId.AppiumTest)  Time elapsed: 33.651 s  <<< FAILURE!
 org.openqa.selenium.WebDriverException: 
-An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20218ms.
+An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20101ms.
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-N00LOFS', ip: '192.168.43.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.8'
 Driver info: driver.version: RemoteWebDriver
-remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20218ms.
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20101ms.
     at getResponseForW3CError (C:\Users\bavithiran\AppData\Local\Programs\Appium\resources\app\node_modules\appium\node_modules\appium-base-driver\lib\protocol\errors.js:804:9)
     at asyncHandler (C:\Users\bavithiran\AppData\Local\Programs\Appium\resources\app\node_modules\appium\node_modules\appium-base-driver\lib\protocol\protocol.js:381:37)
-	at AppiumPackage002GroupId.AppiumTest.setup(AppiumTest.java:55)
+	at AppiumPackage002GroupId.AppiumTest.setup(AppiumTest.java:64)
 

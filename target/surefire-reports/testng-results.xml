@@ -2,28 +2,28 @@
 <testng-results total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-17T07:26:59Z" name="Surefire suite" finished-at="2020-10-17T07:27:20Z" duration-ms="20855">
+  <suite started-at="2020-10-17T07:39:11Z" name="Surefire suite" finished-at="2020-10-17T07:39:45Z" duration-ms="33392">
     <groups>
     </groups>
-    <test started-at="2020-10-17T07:26:59Z" name="Surefire test" finished-at="2020-10-17T07:27:20Z" duration-ms="20855">
+    <test started-at="2020-10-17T07:39:11Z" name="Surefire test" finished-at="2020-10-17T07:39:45Z" duration-ms="33392">
       <class name="AppiumPackage002GroupId.AppiumTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@2c767a52]" started-at="2020-10-17T12:56:59Z" name="setup" finished-at="2020-10-17T12:56:59Z" duration-ms="0" status="FAIL">
+        <test-method is-config="true" signature="setup()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@130161f7]" started-at="2020-10-17T13:09:11Z" name="setup" finished-at="2020-10-17T13:09:11Z" duration-ms="0" status="FAIL">
           <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20218ms.
+              <![CDATA[An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20101ms.
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-N00LOFS', ip: '192.168.43.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.8'
 Driver info: driver.version: RemoteWebDriver
-remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20218ms.
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20101ms.
     at getResponseForW3CError (C:\Users\bavithiran\AppData\Local\Programs\Appium\resources\app\node_modules\appium\node_modules\appium-base-driver\lib\protocol\errors.js:804:9)
     at asyncHandler (C:\Users\bavithiran\AppData\Local\Programs\Appium\resources\app\node_modules\appium\node_modules\appium-base-driver\lib\protocol\protocol.js:381:37)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20218ms.
+              <![CDATA[org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20101ms.
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-N00LOFS', ip: '192.168.43.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.8'
 Driver info: driver.version: RemoteWebDriver
-remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20218ms.
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20101ms.
     at getResponseForW3CError (C:\Users\bavithiran\AppData\Local\Programs\Appium\resources\app\node_modules\appium\node_modules\appium-base-driver\lib\protocol\errors.js:804:9)
     at asyncHandler (C:\Users\bavithiran\AppData\Local\Programs\Appium\resources\app\node_modules\appium\node_modules\appium-base-driver\lib\protocol\protocol.js:381:37)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
@@ -49,7 +49,7 @@ remote stacktrace: UnknownError: An unknown server-side error occurred while pro
 	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
 	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:131)
 	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:144)
-	at AppiumPackage002GroupId.AppiumTest.setup(AppiumTest.java:55)
+	at AppiumPackage002GroupId.AppiumTest.setup(AppiumTest.java:64)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -83,11 +83,11 @@ remote stacktrace: UnknownError: An unknown server-side error occurred while pro
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testSearchAppium()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@2c767a52]" started-at="2020-10-17T12:57:20Z" name="testSearchAppium" finished-at="2020-10-17T12:57:20Z" duration-ms="0" status="SKIP">
+        <test-method signature="testSearchAppium()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@130161f7]" started-at="2020-10-17T13:09:45Z" name="testSearchAppium" finished-at="2020-10-17T13:09:45Z" duration-ms="1" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSearchAppium -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@2c767a52]" started-at="2020-10-17T12:57:20Z" name="tearDown" finished-at="2020-10-17T12:57:20Z" duration-ms="0" status="SKIP">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@130161f7]" started-at="2020-10-17T13:09:45Z" name="tearDown" finished-at="2020-10-17T13:09:45Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

@@ -2,6 +2,10 @@ package AppiumPackage002GroupId;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,8 +24,13 @@ public class AppiumTest {
     WebDriverWait wait;
     String AppURL = "http://www.seleniumeasy.com";
 
+    
+
     @BeforeTest
     public void setup() throws MalformedURLException {
+
+        AppiumTest AppiumTest_obj = new AppiumTest();
+        AppiumTest_obj.OptionPanel();   
 
         // Create an object for Desired Capabilities
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -95,5 +104,14 @@ public class AppiumTest {
     @AfterTest
     public void tearDown() {
         // driver.quit();
+    }
+
+    public void OptionPanel() {
+        JFrame f;
+
+        f = new JFrame();
+      String PhoneNumber = JOptionPane.showInputDialog(f, "Enter PhoneNumber");
+      System.out.println("Phonenumber Enter Value " + " "+ "="  + " " +PhoneNumber);
+
     }
 }
