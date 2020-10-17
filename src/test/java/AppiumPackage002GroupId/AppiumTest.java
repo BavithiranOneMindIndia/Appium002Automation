@@ -1,10 +1,14 @@
 package AppiumPackage002GroupId;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.text.Style;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,15 +26,26 @@ import org.testng.annotations.Test;
 public class AppiumTest {
     WebDriver driver;
     WebDriverWait wait;
+    String deviceId;
+    String PhoneNumber;
     String AppURL = "http://www.seleniumeasy.com";
 
-    
-
     @BeforeTest
-    public void setup() throws MalformedURLException {
+    public void setup() throws IOException {
 
         AppiumTest AppiumTest_obj = new AppiumTest();
-        AppiumTest_obj.OptionPanel();   
+        PhoneNumber = AppiumTest_obj.OptionPanel();
+        System.out.println("Phonenumber Enter Value " + " " + "=" + " " + PhoneNumber);
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
+
+        AppiumTest_obj.runtimeCommandAccess();
 
         // Create an object for Desired Capabilities
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -42,7 +57,7 @@ public class AppiumTest {
         capabilities.setCapability("automationName", "uiAutomator2");
         // The kind of mobile device or emulator to use - iPad Simulator, iPhone
         // Retina 4-inch, Android Emulator, Galaxy S4 etc
-        capabilities.setCapability("deviceName", "d9ec4e2e");
+        capabilities.setCapability("deviceName", deviceId);
 
         // Which mobile OS platform to use - iOS, Android, or FirefoxOS
         capabilities.setCapability("platformName", "Android");
@@ -79,39 +94,117 @@ public class AppiumTest {
             // InterruptedException) occurs
             System.out.println("thread . sleep interrupted Exception.....");
         }
+        // http client request using mobile number..
+
         // Search text value Place
         WebElement SearchTextValuePlace = driver.findElement(By.xpath(
-                "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/androidx.appcompat.widget.LinearLayoutCompat/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText"));
+                "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.view.ViewGroup/android.widget.LinearLayout/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.EditText"));
 
         SearchTextValuePlace.sendKeys("Second");
 
-        // String homePageTitle = titleElement.getText();
-        // Assert.assertEquals(homePageTitle, "Selenium Easy");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
+        // Searched group selecting ....
+        WebElement searchselectGroup = driver.findElement(By.xpath(
+                "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout"));
+        System.out.println("Searched group selecting ....");
+        searchselectGroup.click();
 
-        // WebElement searchElement = driver.findElement(By.name("search_block_form"));
-        // searchElement.sendKeys("Appium Tutorials");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
+        // Typing text in text label.....
+        WebElement typeMessageText = driver.findElement(By.xpath(
+                "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText"));
 
-        // WebElement searchBtnEle = driver.findElement(By.id("edit-submit"));
-        // searchBtnEle.click();
-
-        // By byPageTitle = By.id("page-title");
-        // wait.until(ExpectedConditions.presenceOfElementLocated(byPageTitle));
-
-        // String searchPageTitle = driver.findElement(byPageTitle).getText();
-        // Assert.assertEquals(searchPageTitle, "Search");
+        typeMessageText.sendKeys("Appium Automation test send.....");
+        System.out.println("Typing text in text label.....");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
+        // Clicking send icon...
+        WebElement sendIconClick = driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Send\"]"));
+        sendIconClick.click();
+        System.out.println("Clicking send icon...");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
     }
 
     @AfterTest
     public void tearDown() {
-        // driver.quit();
+        driver.quit();
     }
 
-    public void OptionPanel() {
+    public String OptionPanel() {
         JFrame f;
 
         f = new JFrame();
-      String PhoneNumber = JOptionPane.showInputDialog(f, "Enter PhoneNumber");
-      System.out.println("Phonenumber Enter Value " + " "+ "="  + " " +PhoneNumber);
+        String PhoneNumberValue = JOptionPane.showInputDialog(f, "Enter PhoneNumber");
+        return PhoneNumberValue;
 
+    }
+
+    public void runtimeCommandAccess() throws IOException {
+        Runtime rt = Runtime.getRuntime();
+        // String[] commands = { "adb devices" };
+        // Process proc = new ProcessBuilder("adb devices", "myArg").start();
+        Process proc = rt.exec("adb devices");
+
+        BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+
+        BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
+        // Read the output from the command
+        System.out.println("Here is the standard output of the command:\n");
+        String s = null;
+        while ((s = stdInput.readLine()) != null) {
+            System.out.println(s);
+            if (!s.contains("List of devices attached")) {
+                String[] devices = s.split("device");
+                deviceId = devices[0].trim();
+                // System.out.println(deviceId);
+                System.out.println("deviceId accessed value " + " " + "=" + " " + deviceId);
+
+            }
+
+        }
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
+        // Read any errors from the attempted command
+        System.out.println("Here is the standard error of the command (if any):\n");
+        while ((s = stdError.readLine()) != null) {
+            System.out.println(s);
+        }
     }
 }
