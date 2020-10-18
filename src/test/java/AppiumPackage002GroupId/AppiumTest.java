@@ -28,7 +28,7 @@ public class AppiumTest {
     WebDriverWait wait;
     String deviceId;
     String PhoneNumber;
-    String AppURL = "http://www.seleniumeasy.com";
+    
 
     @BeforeTest
     public void setup() throws IOException {
@@ -47,7 +47,22 @@ public class AppiumTest {
 
         AppiumTest_obj.runtimeCommandAccess();
 
-        // Create an object for Desired Capabilities
+
+        // Access the chrome ....
+        AppiumChromeAccess AppiumChromeAccess_obj = new AppiumChromeAccess();
+        AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
+
+        
+
+
+        // Create an object for Desired Capabilitiesdw
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         // Name of mobile web browser to automate. ‘Safari’ for iOS and ‘Chrome’

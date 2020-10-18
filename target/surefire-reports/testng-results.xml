@@ -2,20 +2,20 @@
 <testng-results total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-17T10:37:18Z" name="Surefire suite" finished-at="2020-10-17T10:37:56Z" duration-ms="37407">
+  <suite started-at="2020-10-18T06:29:21Z" name="Surefire suite" finished-at="2020-10-18T06:30:08Z" duration-ms="47547">
     <groups>
     </groups>
-    <test started-at="2020-10-17T10:37:18Z" name="Surefire test" finished-at="2020-10-17T10:37:56Z" duration-ms="37407">
+    <test started-at="2020-10-18T06:29:21Z" name="Surefire test" finished-at="2020-10-18T06:30:08Z" duration-ms="47547">
       <class name="AppiumPackage002GroupId.AppiumTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@708f5957]" started-at="2020-10-17T16:07:18Z" name="setup" finished-at="2020-10-17T16:07:34Z" duration-ms="15886" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@708f5957]" started-at="2020-10-18T11:59:21Z" name="setup" finished-at="2020-10-18T11:59:45Z" duration-ms="24666" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testSearchAppium()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@708f5957]" started-at="2020-10-17T16:07:34Z" name="testSearchAppium" finished-at="2020-10-17T16:07:55Z" duration-ms="21051" status="PASS">
+        <test-method signature="testSearchAppium()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@708f5957]" started-at="2020-10-18T11:59:45Z" name="testSearchAppium" finished-at="2020-10-18T12:00:08Z" duration-ms="22358" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSearchAppium -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@708f5957]" started-at="2020-10-17T16:07:55Z" name="tearDown" finished-at="2020-10-17T16:07:56Z" duration-ms="461" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@708f5957]" started-at="2020-10-18T12:00:08Z" name="tearDown" finished-at="2020-10-18T12:00:08Z" duration-ms="508" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
