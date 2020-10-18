@@ -136,7 +136,7 @@ public class AppiumTest {
         WebElement typeMessageText = driver.findElement(By.xpath(
                 "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText"));
 
-        typeMessageText.sendKeys("Appium Automation test send.....");
+        typeMessageText.sendKeys("Image downloaded in mobile  and Appium Automation 2nd test send.....");
         System.out.println("Typing text in text label.....");
         try {
             Thread.sleep(3000);

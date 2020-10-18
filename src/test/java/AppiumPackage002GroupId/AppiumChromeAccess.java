@@ -1,18 +1,22 @@
 package AppiumPackage002GroupId;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AppiumChromeAccess {
 
-    String AppURL = "http://www.seleniumeasy.com";
+    String AppURL = "https://stagewhatsappconnect.blob.core.windows.net/whatstemplateappfiles/image%202.png";
+    String destinationFile = "image.jpg";
 
-    public void chromeCapabilities(String deviceId, WebDriver driver, WebDriverWait wait) throws MalformedURLException {
+    public void chromeCapabilities(String deviceId, WebDriver driver, WebDriverWait wait) throws IOException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -55,10 +59,46 @@ public class AppiumChromeAccess {
         }
 
         driver.get(AppURL);
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
+
+        // SaveImageFromBlobUrl SaveImageFromBlobUrl_obj = new SaveImageFromBlobUrl();
+        // SaveImageFromBlobUrl_obj.saveImage(AppURL, destinationFile);
 
         AppiumChromeAccess chrome_obj = new AppiumChromeAccess();
+        chrome_obj.accessingChromeElements(driver);
+
         chrome_obj.chromeDrivertearDown(driver);
 
+    }
+
+    public void accessingChromeElements(WebDriver driver) {
+        WebElement downloadFirstIcon = driver.findElement(By.xpath(
+                "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ImageView"));
+        downloadFirstIcon.click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
+
+        WebElement downloadingIcon = driver
+                .findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Download\"]"));
+        downloadingIcon.click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
     }
 
     public void chromeDrivertearDown(WebDriver driver) {
