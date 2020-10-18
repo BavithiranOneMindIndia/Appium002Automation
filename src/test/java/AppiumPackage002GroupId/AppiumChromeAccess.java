@@ -93,7 +93,7 @@ public class AppiumChromeAccess {
                 .findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Download\"]"));
         downloadingIcon.click();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             // this part is executed when an exception (in this example
             // InterruptedException) occurs

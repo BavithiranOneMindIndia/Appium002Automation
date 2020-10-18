@@ -89,6 +89,21 @@ public class AppiumTest {
         driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 
         wait = new WebDriverWait(driver, 5);
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            // this part is executed when an exception (in this example
+            // InterruptedException) occurs
+            System.out.println("thread . sleep interrupted Exception.....");
+        }
+
+        SendImage SendImage_obj = new SendImage();
+        SendImage_obj.sendImageElementaccess(driver);
+
+        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+
+        wait = new WebDriverWait(driver, 5);
     }
 
     @Test
