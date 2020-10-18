@@ -28,7 +28,6 @@ public class AppiumTest {
     WebDriverWait wait;
     String deviceId;
     String PhoneNumber;
-    
 
     @BeforeTest
     public void setup() throws IOException {
@@ -47,7 +46,6 @@ public class AppiumTest {
 
         AppiumTest_obj.runtimeCommandAccess();
 
-
         // Access the chrome ....
         AppiumChromeAccess AppiumChromeAccess_obj = new AppiumChromeAccess();
         AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait);
@@ -58,9 +56,6 @@ public class AppiumTest {
             // InterruptedException) occurs
             System.out.println("thread . sleep interrupted Exception.....");
         }
-
-        
-
 
         // Create an object for Desired Capabilitiesdw
         DesiredCapabilities capabilities = new DesiredCapabilities();
