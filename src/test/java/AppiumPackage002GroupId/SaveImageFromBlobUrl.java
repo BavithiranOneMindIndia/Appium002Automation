@@ -6,11 +6,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 
-public class SaveImageFromBlobUrl  {
-    
-    public void saveImage(String imageUrl , String destinationFile) throws IOException
-    {
-        URL url = new URL(imageUrl);
+public class SaveImageFromBlobUrl {
+
+	public void saveImage(String imageUrl, String destinationFile) throws IOException {
+		URL url = new URL(imageUrl);
 		InputStream is = url.openStream();
 		OutputStream os = new FileOutputStream(destinationFile);
 
@@ -23,6 +22,6 @@ public class SaveImageFromBlobUrl  {
 
 		is.close();
 		os.close();
-    }
+	}
 
 }

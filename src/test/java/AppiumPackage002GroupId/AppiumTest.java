@@ -5,10 +5,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.text.Style;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +26,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+
 /**
  * Unit test for simple App.
  */
@@ -28,6 +36,14 @@ public class AppiumTest {
     WebDriverWait wait;
     String deviceId;
     String PhoneNumber;
+    FileSourceViewModel file;
+    List<FileSourceViewModel> allFilesOfFileSource = new ArrayList<FileSourceViewModel>();
+    List<TemplateViewModel> allFilesOfTemplate = new ArrayList<TemplateViewModel>();
+
+    String BaseUrl = "https://stage-whatsappconnect-webapi.azurewebsites.net";
+    Hashtable<String, String> hashtableTypeValue = new Hashtable<String, String>();
+    Hashtable<String, String> hashtableBlobUrl = new Hashtable<String, String>();
+    Hashtable<String, Integer> hashtableFileType = new Hashtable<String, Integer>();
 
     @BeforeTest
     public void setup() throws IOException {
@@ -36,7 +52,73 @@ public class AppiumTest {
         PhoneNumber = AppiumTest_obj.OptionPanel();
         System.out.println("Phonenumber Enter Value " + " " + "=" + " " + PhoneNumber);
 
-        try {
+        ApiAccessing ApiAccessing_obj = new ApiAccessing();
+
+        // GroupAdmin/getClusterId/9710565667
+
+        String clusterUrl = BaseUrl + "/GroupAdmin/getClusterId/" + PhoneNumber;
+        String cluserId = ApiAccessing_obj.apiGetProcessing(clusterUrl);
+        // https://stage-whatsappconnect-webapi.azurewebsites.net/Template/getByMobileNumber/9710565667
+
+        String templateUrl = BaseUrl + "/Template/getByMobileNumber/" + PhoneNumber;
+        String templateString = ApiAccessing_obj.apiGetProcessing(templateUrl);
+
+        Gson gson = new Gson();
+        List<TemplateViewModel> listOfTemplates = gson.fromJson(templateString,
+                new TypeToken<List<TemplateViewModel>>() {
+                }.getType());
+
+        for (TemplateViewModel templateViewModel : listOfTemplates) {
+
+            allFilesOfTemplate.add(templateViewModel);
+            for (FileSourceViewModel filesoruce : templateViewModel.fileSourceViewModels) {
+                allFilesOfFileSource.add(filesoruce);
+            }
+        }
+
+        AppiumChromeAccess AppiumChromeAccess_obj = new AppiumChromeAccess();
+
+        // for (int j = allFilesOfTemplate.size(); j > 0; j--) {
+
+        for (int i = allFilesOfFileSource.size(); i > 0; i--) {
+            file = allFilesOfFileSource.get(i - 1);
+            if (file.fileType == 0) {
+                // String file12 = file.id;
+                hashtableTypeValue.put(file.id, "(//android.widget.ImageView[@content-desc=\"Photo\"])[" + i + "]");
+                hashtableBlobUrl.put(file.id, file.blobUrl);
+                hashtableFileType.put(file.id, file.fileType);
+                System.out.println(hashtableTypeValue.get(file.id));
+                // to Access Chrome to download content using blobUrl , this is for Image...
+                AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait, hashtableBlobUrl.get(file.id));
+            } else if (file.fileType == 1) {
+                hashtableTypeValue.put(file.id, "(//android.widget.ImageView[@content-desc=\"Video\"])[" + i + "]");
+                hashtableBlobUrl.put(file.id, file.blobUrl);
+                hashtableFileType.put(file.id, file.fileType);
+                System.out.println(hashtableTypeValue.get(file.id));
+                // to Access Chrome to download content using blobUrl , this is for Video...
+                AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait, hashtableBlobUrl.get(file.id));
+            }
+
+        }
+        for (int x = hashtableFileType.size(); x > 0; x--) {
+            // this is for Image ..
+            if (hashtableFileType.get(file.id) == 0) {
+                SendImageUsingGallery SendImageUsingGallery_obj = new SendImageUsingGallery();
+                SendImageUsingGallery_obj.gallerysendimage(driver,  deviceId,  wait ,  hashtableTypeValue.get(file.id));
+            }
+            // this is for video..
+            else if (hashtableFileType.get(file.id) == 1) {
+                SendVideoUsingGallery SendVideoUsingGallery_obj = new SendVideoUsingGallery();
+                SendVideoUsingGallery_obj.gallerysendvideo(driver,  deviceId,  wait ,  hashtableTypeValue.get(file.id));
+            }
+
+        }
+
+        // }
+
+        try
+
+        {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             // this part is executed when an exception (in this example
@@ -44,66 +126,42 @@ public class AppiumTest {
             System.out.println("thread . sleep interrupted Exception.....");
         }
 
+        // Appium driver Local service .........
+        // AppiumDriverLocalService service =
+        // AppiumDriverLocalService.buildDefaultService();
+        // service.start();
+
+        // Devices Accessing
         AppiumTest_obj.runtimeCommandAccess();
 
-        // Access the chrome ....
-        AppiumChromeAccess AppiumChromeAccess_obj = new AppiumChromeAccess();
-        AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            // this part is executed when an exception (in this example
-            // InterruptedException) occurs
-            System.out.println("thread . sleep interrupted Exception.....");
-        }
+        // Accessing chrome to load Url and download the Image/Video/Audio...
+        // AppiumChromeAccess AppiumChromeAccess_obj = new AppiumChromeAccess();
+        // AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait);
+        // try {
+        // } catch (InterruptedException e) {
+        // this part is executed when an exception (in this example
+        // InterruptedException) occurs
+        // System.out.println("thread . sleep interrupted Exception.....");
+        // }
+        // AppiumChromeAccess_obj.downloadingImageName(driver);
+        // System.out.println(downloadValue);
 
-        // Create an object for Desired Capabilitiesdw
-        DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        // Name of mobile web browser to automate. ‘Safari’ for iOS and ‘Chrome’
-        // or ‘Browser’ for Android
-        // capabilities.setCapability("browserName", "Chrome");
+        // sending video using Whatsapp gallery.....
+        //SendVideoUsingGallery SendVideoUsingGallery_obj = new SendVideoUsingGallery();
+        //SendVideoUsingGallery_obj.gallerysendvideo(driver);
 
-        capabilities.setCapability("automationName", "uiAutomator2");
-        // The kind of mobile device or emulator to use - iPad Simulator, iPhone
-        // Retina 4-inch, Android Emulator, Galaxy S4 etc
-        capabilities.setCapability("deviceName", deviceId);
+        // sending image using Whatsapp gallery....
+        //SendImageUsingGallery SendImageUsingGallery_obj = new SendImageUsingGallery();
+        //SendImageUsingGallery_obj.gallerysendimage(driver);
 
-        // Which mobile OS platform to use - iOS, Android, or FirefoxOS
-        capabilities.setCapability("platformName", "Android");
+        // sending image using whatsapp documents ......
+        //SendImage SendImage_obj = new SendImage();
+        ///SendImage_obj.sendImageElementaccess(driver);
 
-        // Java package of the Android app you want to run- Ex:
-        // com.example.android.myApp
-        // capabilities.setCapability("appPackage", "com.android.chrome");
-        capabilities.setCapability("appPackage", "com.whatsapp.w4b");
+       // driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 
-        // Activity name for the Android activity you want to launch from your
-        // package
-        // capabilities.setCapability("appActivity",
-        // "org.chromium.chrome.browser.document.ChromeLauncherActivity");
-        capabilities.setCapability("appActivity", "com.whatsapp.Main");
-
-        capabilities.setCapability("noReset", "true");
-        // Initialize the driver object with the URL to Appium Server and
-        // passing the capabilities
-        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-
-        wait = new WebDriverWait(driver, 5);
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            // this part is executed when an exception (in this example
-            // InterruptedException) occurs
-            System.out.println("thread . sleep interrupted Exception.....");
-        }
-
-        SendImage SendImage_obj = new SendImage();
-        SendImage_obj.sendImageElementaccess(driver);
-
-        driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-
-        wait = new WebDriverWait(driver, 5);
+      //  wait = new WebDriverWait(driver, 5);
     }
 
     @Test
