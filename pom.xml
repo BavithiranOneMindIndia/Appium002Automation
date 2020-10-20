@@ -82,9 +82,14 @@
       <version>2.8.6</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.apache.calcite/calcite-linq4j -->
+    <dependency>
+      <groupId>org.apache.calcite</groupId>
+      <artifactId>calcite-linq4j</artifactId>
+      <version>1.6.0</version>
+    </dependency>
 
 
-  
   </dependencies>
 
   <build>

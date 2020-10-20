@@ -10,44 +10,26 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import ResourcePackage.ChromeResource;
+
 public class AppiumChromeAccess {
 
     String AppURL = "https://stagewhatsappconnect.blob.core.windows.net/whatstemplateappfiles/sample-video.mp4";
     String destinationFile = "image.jpg";
     String downloadFileName;
 
-    public void chromeCapabilities(String deviceId, WebDriver driver, WebDriverWait wait , String blobUrl) throws IOException {
+    public void chromeCapabilities(String deviceId, WebDriver driver, WebDriverWait wait, String blobUrl)
+            throws IOException, InterruptedException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        // Name of mobile web browser to automate. ‘Safari’ for iOS and ‘Chrome’
-        // or ‘Browser’ for Android
-        // capabilities.setCapability("browserName", "Chrome");
-
         capabilities.setCapability("automationName", "uiAutomator2");
-        // The kind of mobile device or emulator to use - iPad Simulator, iPhone
-        // Retina 4-inch, Android Emulator, Galaxy S4 etc
         capabilities.setCapability("deviceName", deviceId);
-
-        // Which mobile OS platform to use - iOS, Android, or FirefoxOS
         capabilities.setCapability("platformName", "Android");
-
-        // Java package of the Android app you want to run- Ex:
-        // com.example.android.myApp
-        // capabilities.setCapability("appPackage", "com.android.chrome");
         capabilities.setCapability("appPackage", "com.android.chrome");
-
-        // Activity name for the Android activity you want to launch from your
-        // package
-        // capabilities.setCapability("appActivity",
-        // "org.chromium.chrome.browser.document.ChromeLauncherActivity");
         capabilities.setCapability("appActivity", "org.chromium.chrome.browser.document.ChromeLauncherActivity");
-
         capabilities.setCapability("noReset", "true");
-        // Initialize the driver object with the URL to Appium Server and
         // passing the capabilities
         driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-
         wait = new WebDriverWait(driver, 6);
 
         try {
@@ -79,28 +61,11 @@ public class AppiumChromeAccess {
 
     }
 
-    public void accessingChromeElements(WebDriver driver) {
-        WebElement downloadFirstIcon = driver.findElement(By.xpath(
-                "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ImageView"));
-        downloadFirstIcon.click();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            // this part is executed when an exception (in this example
-            // InterruptedException) occurs
-            System.out.println("thread . sleep interrupted Exception.....");
-        }
+    public void accessingChromeElements(WebDriver driver) throws InterruptedException {
 
-        WebElement downloadingIcon = driver
-                .findElement(By.xpath("//android.widget.ImageButton[@content-desc=\"Download\"]"));
-        downloadingIcon.click();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            // this part is executed when an exception (in this example
-            // InterruptedException) occurs
-            System.out.println("thread . sleep interrupted Exception.....");
-        }
+        ChromeResource ChromeResource_obj = new ChromeResource(driver);
+        ChromeResource_obj.chromeSettingClick(driver);
+        ChromeResource_obj.downloadIconClick(driver);
 
     }
 
