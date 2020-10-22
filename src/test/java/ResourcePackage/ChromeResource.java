@@ -1,5 +1,6 @@
 package ResourcePackage;
 
+import org.aspectj.apache.bcel.classfile.Module.Open;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -44,8 +45,10 @@ public class ChromeResource {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 180);
             WebElement afterDownloadingWait = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
-                    "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[3]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView")));
-            afterDownloadingWait.click();
+                    "//android.widget.TextView[contains(@content-desc,\"Open\")]")));
+
+            wait.until(ExpectedConditions.textToBePresentInElement(afterDownloadingWait, "Open"));
+            ///wait.until(ExpectedConditions.attributeContains(element, attribute, value)
 
         } catch (Exception e) {
             System.out.println(e);
