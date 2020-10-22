@@ -2,6 +2,8 @@ package AppiumPackage002GroupId;
 
 import java.util.List;
 
+import javax.print.DocFlavor.STRING;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TemplateViewModel {
@@ -49,6 +51,17 @@ public class TemplateViewModel {
     }
 
     int messageType;
+
+    @JsonProperty("clusterId")
+    public int getclusterId() {
+        return this.messageType;
+    }
+
+    public void setclusterId(String clusterId) {
+        this.clusterId = clusterId;
+    }
+
+    String clusterId;
 
     @JsonProperty("fileSourceViewModels")
     public List<FileSourceViewModel> getFileSourceViewModels() {

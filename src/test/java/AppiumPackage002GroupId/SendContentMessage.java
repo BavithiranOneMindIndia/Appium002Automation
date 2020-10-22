@@ -8,28 +8,38 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ResourcePackage.SendImageGalleryResource;
 import ResourcePackage.SendVideoGalleryResource;
 import ResourcePackage.SendingTextResource;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Hashtable;
 import java.util.List;
 
-public class SendTextMessage {
+import javax.json.Json;
+import javax.json.JsonObject;
 
-    public void SendTextMessageProcess(WebDriver driver, String deviceId, WebDriverWait wait,
+public class SendContentMessage {
+
+    AppiumDriverLocalService appiumService;
+    String appiumServiceUrl;
+    String BaseUrl = "https://stage-whatsappconnect-webapi.azurewebsites.net/Template/updateMessageTracker";
+
+    public void SendContentMessageProcess(WebDriver driver, String deviceId, WebDriverWait wait,
             List<TemplateViewModel> listOfTemplates, List<GroupTemplateViewModel> ListOfGroups,
-            Hashtable<String, String> hashtableContentLable) throws MalformedURLException, InterruptedException {
+            Hashtable<String, String> hashtableContentLable, String PhoneNumber)
+            throws MalformedURLException, InterruptedException {
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("automationName", "uiAutomator2");
         capabilities.setCapability("deviceName", deviceId);
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("appPackage", "com.whatsapp.w4b");
+        capabilities.setCapability("appPackage", "com.whatsapp");
         capabilities.setCapability("appActivity", "com.whatsapp.Main");
         capabilities.setCapability("noReset", "true");
 
         driver = new RemoteWebDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 15);
 
         try {
             Thread.sleep(2000);
@@ -42,16 +52,19 @@ public class SendTextMessage {
         SendingTextResource SendingTextResource_obj = new SendingTextResource(driver);
         SendImageGalleryResource SendImageGalleryResource_obj = new SendImageGalleryResource(driver);
         SendVideoGalleryResource SendVideoGalleryResource_obj = new SendVideoGalleryResource(driver);
+        ApiAccessing ApiAccessing_obj = new ApiAccessing();
 
         SendingTextResource_obj.Searchbutton(driver);
-        Thread.sleep(2000);
+        Thread.sleep(3000);
+
+        SendContentMessage SendContentMessage_obj = new SendContentMessage();
 
         for (GroupTemplateViewModel groupModel : ListOfGroups) {
 
             SendingTextResource_obj.SearchTextValuePlace(driver, groupModel.name);
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             SendingTextResource_obj.SearchselectGroup(driver);
-            Thread.sleep(2000);
+            Thread.sleep(3000);
 
             for (int templateId : groupModel.templates) {
 
@@ -63,7 +76,14 @@ public class SendTextMessage {
 
                     SendingTextResource_obj.SendIcon(driver);
                     Thread.sleep(2000);
-                  
+                    String payloadJsonString = SendContentMessage_obj.jsonObject(groupModel.id, templateId,
+                            templateModel.clusterId, PhoneNumber);
+                    System.out.println(payloadJsonString);
+                    ApiAccessing_obj.apiPostProcessing(BaseUrl, payloadJsonString);
+
+
+                    //SendingTextResource_obj.NavigateBackFormChat(driver);
+                    //Thread.sleep(1000);
 
                 } else {
 
@@ -78,7 +98,14 @@ public class SendTextMessage {
                         Thread.sleep(1000);
                     }
 
-                    SendingTextResource_obj.SendTextMessage(driver, templateModel.text);
+                    SendImageGalleryResource_obj.ImageSendClick(driver);
+                    // SendingTextResource_obj.SendIcon(driver);
+                    Thread.sleep(2000);
+                    String payloadJsonString = SendContentMessage_obj.jsonObject(groupModel.id, templateId,
+                            templateModel.clusterId, PhoneNumber);
+                    System.out.println(payloadJsonString);
+                    ApiAccessing_obj.apiPostProcessing(BaseUrl, payloadJsonString);
+                    Thread.sleep(1000);
 
                 }
 
@@ -86,6 +113,7 @@ public class SendTextMessage {
             SendingTextResource_obj.NavigateBackFormChat(driver);
             Thread.sleep(1000);
         }
+        //SendingTextResource_obj.NavigateBackFormChat(driver);
 
     }
 
@@ -98,6 +126,14 @@ public class SendTextMessage {
             }
         }
         return null;
+    }
+
+    public String jsonObject(int groupId, int templateMessageId, String clusterId, String mobileNumber) {
+        JsonObject empJsonObject = Json.createObjectBuilder().add("groupId", groupId)
+                .add("templateMessageId", templateMessageId).add("clusterId", clusterId)
+                .add("mobileNumber", mobileNumber).build();
+        return empJsonObject.toString();
+
     }
 
 }
