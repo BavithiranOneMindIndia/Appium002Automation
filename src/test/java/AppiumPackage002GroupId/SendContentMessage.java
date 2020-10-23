@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ResourcePackage.SendImageGalleryResource;
 import ResourcePackage.SendVideoGalleryResource;
+import ResourcePackage.SendingAudioInDocResource;
 import ResourcePackage.SendingTextResource;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 
@@ -52,6 +53,7 @@ public class SendContentMessage {
         SendingTextResource SendingTextResource_obj = new SendingTextResource(driver);
         SendImageGalleryResource SendImageGalleryResource_obj = new SendImageGalleryResource(driver);
         SendVideoGalleryResource SendVideoGalleryResource_obj = new SendVideoGalleryResource(driver);
+        SendingAudioInDocResource SendingAudioInDocResource_obj = new SendingAudioInDocResource(driver);
         ApiAccessing ApiAccessing_obj = new ApiAccessing();
 
         SendingTextResource_obj.Searchbutton(driver);
@@ -61,15 +63,24 @@ public class SendContentMessage {
 
         for (GroupTemplateViewModel groupModel : ListOfGroups) {
 
-            SendingTextResource_obj.SearchTextValuePlace(driver, groupModel.name);
-            Thread.sleep(3000);
+            try {
+                SendingTextResource_obj.SearchTextValuePlace(driver, groupModel.name);
+                Thread.sleep(3000);
+            } catch (Exception e) {
+                System.out.println(e);
+                SendingTextResource_obj.Searchbutton(driver);
+                Thread.sleep(3000);
+                SendingTextResource_obj.SearchTextValuePlace(driver, groupModel.name);
+                Thread.sleep(3000);
+            }
+
             SendingTextResource_obj.SearchselectGroup(driver);
             Thread.sleep(3000);
 
             for (int templateId : groupModel.templates) {
 
                 TemplateViewModel templateModel = GetTemplateById(listOfTemplates, templateId);
-
+                // Text message send ...
                 if (templateModel.messageType == 0) {
                     SendingTextResource_obj.SendTextMessage(driver, templateModel.text);
                     Thread.sleep(2000);
@@ -81,31 +92,67 @@ public class SendContentMessage {
                     System.out.println(payloadJsonString);
                     ApiAccessing_obj.apiPostProcessing(BaseUrl, payloadJsonString);
 
+                    // SendingTextResource_obj.NavigateBackFormChat(driver);
+                    // Thread.sleep(1000);
+                    // Image and video send....
+                }
 
-                    //SendingTextResource_obj.NavigateBackFormChat(driver);
-                    //Thread.sleep(1000);
+                else {
 
-                } else {
+                    for (FileSourceViewModel fileSourceMain : templateModel.fileSourceViewModels) {
+                        // Audio File send ....
+                        if (fileSourceMain.fileType == 4) {
 
-                    SendImageGalleryResource_obj.fileAttachButtonClick(driver);
-                    Thread.sleep(1000);
-                    SendImageGalleryResource_obj.galleryAttachElement(driver);
-                    Thread.sleep(1000);
-                    SendImageGalleryResource_obj.galleryImageFolderClick(driver);
-                    Thread.sleep(1000);
-                    for (FileSourceViewModel file : templateModel.fileSourceViewModels) {
-                        SendImageGalleryResource_obj.ImageSelect(hashtableContentLable.get(file.id), driver);
-                        Thread.sleep(1000);
+                            SendingAudioInDocResource_obj.FileAttachButtonClick(driver);
+                            Thread.sleep(1000);
+                            SendingAudioInDocResource_obj.DocumentFolderClick(driver);
+                            Thread.sleep(1000);
+                            SendingAudioInDocResource_obj.DocumentSearchbutton(driver);
+                            Thread.sleep(1000);
+
+                            for (FileSourceViewModel file : templateModel.fileSourceViewModels) {
+                                SendingAudioInDocResource_obj.documentSearchSendKeys(file.fileName, driver);
+                                Thread.sleep(3000);
+                            }
+
+                            SendingAudioInDocResource_obj.contentSearchSelect(driver);
+                            Thread.sleep(1000);
+                            SendingAudioInDocResource_obj.documnentaudioSendIcon(driver);
+                            Thread.sleep(1000);
+
+                            String payloadJsonString = SendContentMessage_obj.jsonObject(groupModel.id, templateId,
+                                    templateModel.clusterId, PhoneNumber);
+                            System.out.println(payloadJsonString);
+                            ApiAccessing_obj.apiPostProcessing(BaseUrl, payloadJsonString);
+                            Thread.sleep(1000);
+
+                        }
+                        // Image and Video send ....
+                        else {
+
+                            SendImageGalleryResource_obj.fileAttachButtonClick(driver);
+                            Thread.sleep(1000);
+                            SendImageGalleryResource_obj.galleryAttachElement(driver);
+                            Thread.sleep(1000);
+                            SendImageGalleryResource_obj.galleryImageFolderClick(driver);
+                            Thread.sleep(1000);
+                            for (FileSourceViewModel file : templateModel.fileSourceViewModels) {
+                                SendImageGalleryResource_obj.ImageSelect(hashtableContentLable.get(file.id), driver);
+                                Thread.sleep(3000);
+                            }
+
+                            SendImageGalleryResource_obj.ImageSendClick(driver);
+                            // SendingTextResource_obj.SendIcon(driver);
+                            Thread.sleep(2000);
+                            SendImageGalleryResource_obj.videoAccessTextLableClick(driver);
+
+                            String payloadJsonString = SendContentMessage_obj.jsonObject(groupModel.id, templateId,
+                                    templateModel.clusterId, PhoneNumber);
+                            System.out.println(payloadJsonString);
+                            ApiAccessing_obj.apiPostProcessing(BaseUrl, payloadJsonString);
+                            Thread.sleep(1000);
+                        }
                     }
-
-                    SendImageGalleryResource_obj.ImageSendClick(driver);
-                    // SendingTextResource_obj.SendIcon(driver);
-                    Thread.sleep(2000);
-                    String payloadJsonString = SendContentMessage_obj.jsonObject(groupModel.id, templateId,
-                            templateModel.clusterId, PhoneNumber);
-                    System.out.println(payloadJsonString);
-                    ApiAccessing_obj.apiPostProcessing(BaseUrl, payloadJsonString);
-                    Thread.sleep(1000);
 
                 }
 
@@ -113,7 +160,7 @@ public class SendContentMessage {
             SendingTextResource_obj.NavigateBackFormChat(driver);
             Thread.sleep(1000);
         }
-        //SendingTextResource_obj.NavigateBackFormChat(driver);
+        // SendingTextResource_obj.NavigateBackFormChat(driver);
 
     }
 

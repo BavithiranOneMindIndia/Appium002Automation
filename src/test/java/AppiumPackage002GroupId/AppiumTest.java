@@ -85,7 +85,7 @@ public class AppiumTest {
         AppiumTest_obj.runtimeCommandAccess();
 
         ServerLanuch ServerLanuch_object = new ServerLanuch();
-        //ServerLanuch_object.startServer();
+        // ServerLanuch_object.startServer();
         // AppiumTest_obj.clearAFolder();
         GalleryAppReset GalleryAppReset_Object = new GalleryAppReset();
         // Deleting files by Google -> downloads -> delete all the files in Download
@@ -112,24 +112,35 @@ public class AppiumTest {
         // Content downloading loop ......
 
         int videoId = 1;
+        int photoId = 1;
 
         for (int i = allFilesOfFileSource.size(); i > 0; i--) {
             file = allFilesOfFileSource.get(i - 1);
+            // Image file type
             if (file.fileType == 0) {
                 // String file12 = file.id;
-                hashtableContentLable.put(file.id, "(//android.widget.ImageView[@content-desc=\"Photo\"])[" + i + "]");
+                hashtableContentLable.put(file.id,
+                        "(//android.widget.ImageView[@content-desc=\"Photo\"])[" + photoId + "]");
                 hashtableBlobUrl.put(file.id, file.blobUrl);
                 System.out.println(hashtableBlobUrl.get(file.id).toString());
 
                 AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait, hashtableBlobUrl.get(file.id));
+                // Video file type
             } else if (file.fileType == 1) {
-                hashtableContentLable.put(file.id, "(//android.widget.ImageView[@content-desc=\"Video\"])[" + videoId + "]");
+                hashtableContentLable.put(file.id,
+                        "(//android.widget.ImageView[@content-desc=\"Video\"])[" + videoId + "]");
                 hashtableBlobUrl.put(file.id, file.blobUrl);
                 System.out.println(hashtableContentLable.get(file.id));
                 // to Access Chrome to download content using blobUrl , this is for Video...
                 AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait, hashtableBlobUrl.get(file.id));
-                videoId  = videoId + 1;
+                videoId = videoId + 1;
+            } else if (file.fileType == 4) {
+                System.out.println("Audio file downloading");
+                hashtableBlobUrl.put(file.id, file.blobUrl);
+                System.out.println(hashtableContentLable.get(file.id));
+                AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait, hashtableBlobUrl.get(file.id));
             }
+
         }
     }
 
@@ -143,7 +154,8 @@ public class AppiumTest {
         SendContentMessage_obj.SendContentMessageProcess(driver, deviceId, wait, listOfTemplates, ListOfGroups,
                 hashtableContentLable, PhoneNumber);
 
-        System.out.println("Entering testSearchAppium class .......");
+        System.out.println("Content sends successfully sent .......");
+        /// driver.quit();
 
     }
 

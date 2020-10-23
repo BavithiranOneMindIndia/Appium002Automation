@@ -21,6 +21,8 @@ public class SendImageGalleryResource {
     By ImageSendClick = By.xpath("//android.widget.ImageButton[@content-desc=\"Send\"]");
     By longPressOkButton = By.xpath(
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView");
+    By VideoAccessTextLableClick = By.xpath(
+            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText");
 
     public SendImageGalleryResource(WebDriver driver) {
         this.driver = driver;
@@ -76,8 +78,12 @@ public class SendImageGalleryResource {
         Thread.sleep(2000);
     }
 
-    public void LongPressOkButton() {
+    public void LongPressOkButton(WebDriver driver) {
         driver.findElement(longPressOkButton).click();
+    }
+
+    public void videoAccessTextLableClick(WebDriver driver) {
+        driver.findElement(VideoAccessTextLableClick).click();
     }
 
 }

@@ -2,6 +2,9 @@ package ResourcePackage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SendingTextResource {
 
@@ -13,8 +16,9 @@ public class SendingTextResource {
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout");
     By sendTextMessage = By.xpath(
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.FrameLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText");
-    By sendIcon = By.xpath("//android.widget.ImageButton[@content-desc=\"Send\"]");     
-    By navigateBackFormChat = By.xpath("//android.widget.LinearLayout[@content-desc=\"Navigate up\"]/android.widget.ImageView");
+    By sendIcon = By.xpath("//android.widget.ImageButton[@content-desc=\"Send\"]");
+    By navigateBackFormChat = By
+            .xpath("//android.widget.LinearLayout[@content-desc=\"Navigate up\"]/android.widget.ImageView");
 
     public SendingTextResource(WebDriver driver) {
         this.driver = driver;
@@ -24,13 +28,11 @@ public class SendingTextResource {
         driver.findElement(searchbutton).click();
     }
 
-    public void SearchTextValuePlace(WebDriver driver,String groupName) {
+    public void SearchTextValuePlace(WebDriver driver, String groupName) {
         driver.findElement(searchTextValuePlace).clear();
         driver.findElement(searchTextValuePlace).sendKeys(groupName);
 
     }
-
-    
 
     public void SearchselectGroup(WebDriver driver) {
         driver.findElement(searchselectGroup).click();
@@ -39,14 +41,14 @@ public class SendingTextResource {
     public void SendTextMessage(WebDriver driver, String textMessage) {
         driver.findElement(sendTextMessage).sendKeys(textMessage);
     }
-    public void SendIcon(WebDriver driver)
-    {
+
+    public void SendIcon(WebDriver driver) {
         driver.findElement(sendIcon).click();
     }
 
-    public void NavigateBackFormChat(WebDriver driver)
-    {
+    public void NavigateBackFormChat(WebDriver driver) {
         driver.findElement(navigateBackFormChat).click();
+
     }
 
 }

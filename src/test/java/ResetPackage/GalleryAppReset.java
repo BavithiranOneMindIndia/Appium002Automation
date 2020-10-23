@@ -38,9 +38,9 @@ public class GalleryAppReset {
 
         FilesByGoogleResource_obj.clickBrowse(driver);
         Thread.sleep(1000);
-        try{
-        FilesByGoogleResource_obj.clickDownloadsIcon(driver);
-        Thread.sleep(1000);
+        try {
+            FilesByGoogleResource_obj.clickDownloadsIcon(driver);
+            Thread.sleep(1000);
             FilesByGoogleResource_obj.clickSettingsOption(driver);
             Thread.sleep(1000);
             FilesByGoogleResource_obj.clickSelectallInSettings(driver);
