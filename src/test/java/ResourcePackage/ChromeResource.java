@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass;
+
 public class ChromeResource {
 
     WebDriver driver;
@@ -20,6 +22,8 @@ public class ChromeResource {
     By alreadyDownloadIcon = By.xpath(
             "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[3]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.Button[2]");
 
+    LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
+
     public ChromeResource(WebDriver driver) {
         this.driver = driver;
 
@@ -29,7 +33,9 @@ public class ChromeResource {
     public void chromeSettingClick(WebDriver driver) throws InterruptedException {
 
         driver.findElement(chromeSettingClick).click();
+
         Thread.sleep(2000);
+        LogGeneratorClass_obj.GenerateLog("chromeSettingClick is successfully");
     }
 
     // To click download Click icon....
@@ -41,14 +47,16 @@ public class ChromeResource {
         } catch (Exception e) {
             System.out.println(e);
             System.out.println("Alreadydownload is not visible...");
+            LogGeneratorClass_obj.GenerateLog("Alreadydownload is not visible...");
+
         }
         try {
             WebDriverWait wait = new WebDriverWait(driver, 180);
-            WebElement afterDownloadingWait = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
-                    "//android.widget.TextView[contains(@content-desc,\"Open\")]")));
+            WebElement afterDownloadingWait = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//android.widget.TextView[contains(@content-desc,\"Open\")]")));
 
             wait.until(ExpectedConditions.textToBePresentInElement(afterDownloadingWait, "Open"));
-            ///wait.until(ExpectedConditions.attributeContains(element, attribute, value)
+            /// wait.until(ExpectedConditions.attributeContains(element, attribute, value)
 
         } catch (Exception e) {
             System.out.println(e);
@@ -57,6 +65,7 @@ public class ChromeResource {
             driver.quit();
             System.out.println("Finally quitting the browser");
         }
+        LogGeneratorClass_obj.GenerateLog("downloadIconClick is successfully");
     }
 
     // After downloading the Image to get the image name...

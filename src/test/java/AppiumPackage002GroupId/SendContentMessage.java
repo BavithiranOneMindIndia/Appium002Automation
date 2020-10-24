@@ -5,6 +5,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass;
 import ResourcePackage.SendImageGalleryResource;
 import ResourcePackage.SendVideoGalleryResource;
 import ResourcePackage.SendingAudioInDocResource;
@@ -24,6 +25,7 @@ public class SendContentMessage {
     AppiumDriverLocalService appiumService;
     String appiumServiceUrl;
     String BaseUrl = "https://stage-whatsappconnect-webapi.azurewebsites.net/Template/updateMessageTracker";
+    LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
 
     public void SendContentMessageProcess(WebDriver driver, String deviceId, WebDriverWait wait,
             List<TemplateViewModel> listOfTemplates, List<GroupTemplateViewModel> ListOfGroups,

@@ -13,6 +13,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass;
 import ResourcePackage.ChromeResource;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
@@ -32,6 +33,8 @@ public class AppiumChromeAccess {
     private AppiumServiceBuilder builder;
     // private AppiumDriverLocalService service;
 
+    LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
+
     public void chromeCapabilities(String deviceId, WebDriver driver, WebDriverWait wait, String blobUrl)
             throws IOException, InterruptedException, URISyntaxException {
 
@@ -49,13 +52,8 @@ public class AppiumChromeAccess {
         // AndroidDriver driver1 = new AndroidDriver(new
         // URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            // this part is executed when an exception (in this example
-            // InterruptedException) occurs
-            System.out.println("thread . sleep interrupted Exception.....");
-        }
+        Thread.sleep(3000);
+
         AppiumChromeAccess chrome_obj = new AppiumChromeAccess();
 
         // ChromeResource_obj.clicksearchplace(driver, blobUrl);
@@ -64,13 +62,7 @@ public class AppiumChromeAccess {
         System.out.println(blobUrl);
         driver.get(blobUrl);
 
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            // this part is executed when an exception (in this example
-            // InterruptedException) occurs
-            System.out.println("thread . sleep interrupted Exception.....");
-        }
+        Thread.sleep(4000);
 
         // SaveImageFromBlobUrl SaveImageFromBlobUrl_obj = new SaveImageFromBlobUrl();
         // SaveImageFromBlobUrl_obj.saveImage(AppURL, destinationFile);
@@ -78,7 +70,6 @@ public class AppiumChromeAccess {
         chrome_obj.accessingChromeElements(driver);
         // chrome_obj.downloadingImageName(driver);
         chrome_obj.chromeDrivertearDown(driver);
-
 
         // chrome_obj.chromeDrivertearDown(driver);
 
