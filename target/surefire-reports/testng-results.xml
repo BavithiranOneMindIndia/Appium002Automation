@@ -2,24 +2,24 @@
 <testng-results total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-10-21T11:21:08Z" name="Surefire suite" finished-at="2020-10-21T11:23:55Z" duration-ms="166675">
+  <suite started-at="2020-10-27T05:51:52Z" name="Surefire suite" finished-at="2020-10-27T06:01:18Z" duration-ms="565743">
     <groups>
     </groups>
-    <test started-at="2020-10-21T11:21:08Z" name="Surefire test" finished-at="2020-10-21T11:23:55Z" duration-ms="166675">
+    <test started-at="2020-10-27T05:51:52Z" name="Surefire test" finished-at="2020-10-27T06:01:18Z" duration-ms="565743">
       <class name="AppiumPackage002GroupId.AppiumTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@7334aada]" started-at="2020-10-21T16:51:08Z" name="setup" finished-at="2020-10-21T16:51:43Z" duration-ms="34893" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@1189dd52]" started-at="2020-10-27T11:21:52Z" name="setup" finished-at="2020-10-27T11:24:17Z" duration-ms="144601" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testSearchAppium()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@7334aada]" started-at="2020-10-21T16:51:43Z" name="testSearchAppium" finished-at="2020-10-21T16:53:55Z" duration-ms="131758" status="PASS">
+        <test-method signature="testSearchAppium()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@1189dd52]" started-at="2020-10-27T11:24:17Z" name="testSearchAppium" finished-at="2020-10-27T11:31:18Z" duration-ms="421120" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSearchAppium -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@7334aada]" started-at="2020-10-21T16:53:55Z" name="tearDown" finished-at="2020-10-21T16:53:55Z" duration-ms="0" status="FAIL">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:AppiumPackage002GroupId.AppiumTest@1189dd52]" started-at="2020-10-27T11:31:18Z" name="tearDown" finished-at="2020-10-27T11:31:18Z" duration-ms="0" status="FAIL">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-	at AppiumPackage002GroupId.AppiumTest.tearDown(AppiumTest.java:133)
+	at AppiumPackage002GroupId.AppiumTest.tearDown(AppiumTest.java:176)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
