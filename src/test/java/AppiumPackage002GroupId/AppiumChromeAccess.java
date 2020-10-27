@@ -33,7 +33,7 @@ public class AppiumChromeAccess {
     private AppiumServiceBuilder builder;
     // private AppiumDriverLocalService service;
 
-    LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
+    //LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
 
     public void chromeCapabilities(String deviceId, WebDriver driver, WebDriverWait wait, String blobUrl)
             throws IOException, InterruptedException, URISyntaxException {

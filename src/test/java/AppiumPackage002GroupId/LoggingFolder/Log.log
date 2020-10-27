@@ -112,3 +112,9 @@ Oct 27, 2020 11:56:27 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass
 INFO: getGroups = https://stage-whatsappconnect-webapi.azurewebsites.net/Group/getGroupsByMobileNumber/8610980828
 Oct 27, 2020 12:00:42 PM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: No such host is known (stage-whatsappconnect-webapi.azurewebsites.net)
+Oct 27, 2020 6:07:42 PM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+INFO: Api got failed
+Oct 27, 2020 6:07:44 PM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+INFO: Api got failed
+Oct 27, 2020 6:07:45 PM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+INFO: Api got failed

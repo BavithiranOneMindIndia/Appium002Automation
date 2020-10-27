@@ -13,7 +13,7 @@ import ResourcePackage.FilesByGoogleResource;
 
 public class GalleryAppReset {
 
-    LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
+    //LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
 
     public void FilesByGoogleDeleteProcess(WebDriver driver, String deviceId, WebDriverWait wait)
             throws MalformedURLException, InterruptedException {

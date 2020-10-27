@@ -14,7 +14,7 @@ import javax.json.*;
 
 public class ApiAccessing {
 
-    LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
+    //LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
 
     public String apiGetProcessing(String apiUrl) {
         DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -41,7 +41,7 @@ public class ApiAccessing {
             // System.out.println(apiOutput);
         } catch (Exception exception) {
             System.out.println("Api got failed");
-            LogGeneratorClass_obj.GenerateLog("Api got failed");
+            //LogGeneratorClass_obj.GenerateLog("Api got failed");
             return null;
         }
     }
@@ -71,7 +71,7 @@ public class ApiAccessing {
 
             System.out.println(exception.getMessage());
             System.out.println("Post Api got failed");
-            LogGeneratorClass_obj.GenerateLog(exception.getMessage());
+            //LogGeneratorClass_obj.GenerateLog(exception.getMessage());
             return null;
         }
 

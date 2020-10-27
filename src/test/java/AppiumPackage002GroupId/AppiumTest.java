@@ -168,13 +168,13 @@ public class AppiumTest extends LogGeneratorClass {
 
         System.out.println("Content sends successfully sent .......");
         // LogGeneratorClass_obj.GenerateLog("Content sends successfully sent .......");
-        /// driver.quit();
+        driver.quit();
 
     }
 
     @AfterTest
     public void tearDown() {
-        driver.quit();
+        System.out.println("Appium Process Completed ..");
     }
 
     public String OptionPanel() {

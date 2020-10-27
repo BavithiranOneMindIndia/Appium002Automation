@@ -25,7 +25,7 @@ public class SendContentMessage {
     AppiumDriverLocalService appiumService;
     String appiumServiceUrl;
     String BaseUrl = "https://stage-whatsappconnect-webapi.azurewebsites.net/Template/updateMessageTracker";
-    LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
+    //LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
 
     public void SendContentMessageProcess(WebDriver driver, String deviceId, WebDriverWait wait,
             List<TemplateViewModel> listOfTemplates, List<GroupTemplateViewModel> ListOfGroups,
@@ -163,7 +163,7 @@ public class SendContentMessage {
             Thread.sleep(1000);
         }
         // SendingTextResource_obj.NavigateBackFormChat(driver);
-
+        driver.quit();
     }
 
     private TemplateViewModel GetTemplateById(List<TemplateViewModel> listOfTemplates, int id) {
