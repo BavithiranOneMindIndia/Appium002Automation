@@ -42,11 +42,11 @@ public class AppiumTest extends LogGeneratorClass {
     String BaseUrl = "https://stage-whatsappconnect-webapi.azurewebsites.net";
     Hashtable<String, String> hashtableContentLable = new Hashtable<String, String>();
     Hashtable<String, String> hashtableBlobUrl = new Hashtable<String, String>();
-    static Logger logger = Logger.getLogger(AppiumTest.class);
+    // static Logger logger = Logger.getLogger(AppiumTest.class);
     // Hashtable<String, Integer> hashtableFileType = new Hashtable<String,
     // Integer>();
 
-    LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
+    // LogGeneratorClass LogGeneratorClass_obj = new LogGeneratorClass();
 
     List<GroupTemplateViewModel> ListOfGroups;
     List<TemplateViewModel> listOfTemplates;
@@ -58,25 +58,26 @@ public class AppiumTest extends LogGeneratorClass {
         PhoneNumber = AppiumTest_obj.OptionPanel();
         System.out.println("Phonenumber Enter Value " + " " + "=" + " " + PhoneNumber);
 
-        LogGeneratorClass_obj.GenerateLog("Phonenumber Enter Value " + " " + "=" + " " + PhoneNumber);
+        // LogGeneratorClass_obj.GenerateLog("Phonenumber Enter Value " + " " + "=" + "
+        // " + PhoneNumber);
 
         ApiAccessing ApiAccessing_obj = new ApiAccessing();
 
         String clusterUrl = BaseUrl + "/GroupAdmin/getClusterId/" + PhoneNumber;
         String cluserId = ApiAccessing_obj.apiGetProcessing(clusterUrl);
         System.out.println("ClusterId" + " = " + cluserId);
-        LogGeneratorClass_obj.GenerateLog("ClusterId" + " = " + cluserId);
+        // LogGeneratorClass_obj.GenerateLog("ClusterId" + " = " + cluserId);
 
         // https://stage-whatsappconnect-webapi.azurewebsites.net/Template/getByMobileNumber/9710565667
         String templateUrl = BaseUrl + "/Template/getByMobileNumber/" + PhoneNumber;
         String templateString = ApiAccessing_obj.apiGetProcessing(templateUrl);
         System.out.println("templateString" + " = " + templateString);
-        LogGeneratorClass_obj.GenerateLog("templateString" + " = " + templateString);
+        // LogGeneratorClass_obj.GenerateLog("templateString" + " = " + templateString);
 
         String getGroups = BaseUrl + "/Group/getGroupsByMobileNumber/" + PhoneNumber;
         String getGroupString = ApiAccessing_obj.apiGetProcessing(getGroups);
         System.out.println("getGroups" + " = " + getGroups);
-        LogGeneratorClass_obj.GenerateLog("getGroups" + " = " + getGroups);
+        // LogGeneratorClass_obj.GenerateLog("getGroups" + " = " + getGroups);
 
         Gson gson = new Gson();
 
@@ -129,7 +130,7 @@ public class AppiumTest extends LogGeneratorClass {
                         "(//android.widget.ImageView[@content-desc=\"Photo\"])[" + photoId + "]");
                 hashtableBlobUrl.put(file.id, file.blobUrl);
                 System.out.println(hashtableBlobUrl.get(file.id).toString());
-                LogGeneratorClass_obj.GenerateLog(hashtableBlobUrl.get(file.id).toString());
+                // LogGeneratorClass_obj.GenerateLog(hashtableBlobUrl.get(file.id).toString());
 
                 AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait, hashtableBlobUrl.get(file.id));
                 // Video file type
@@ -138,7 +139,7 @@ public class AppiumTest extends LogGeneratorClass {
                         "(//android.widget.ImageView[@content-desc=\"Video\"])[" + videoId + "]");
                 hashtableBlobUrl.put(file.id, file.blobUrl);
                 System.out.println(hashtableContentLable.get(file.id));
-                LogGeneratorClass_obj.GenerateLog(hashtableContentLable.get(file.id));
+                // LogGeneratorClass_obj.GenerateLog(hashtableContentLable.get(file.id));
 
                 // to Access Chrome to download content using blobUrl , this is for Video...
                 AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait, hashtableBlobUrl.get(file.id));
@@ -147,12 +148,12 @@ public class AppiumTest extends LogGeneratorClass {
                 System.out.println("Audio file downloading");
                 hashtableBlobUrl.put(file.id, file.blobUrl);
                 System.out.println(hashtableContentLable.get(file.id));
-                LogGeneratorClass_obj.GenerateLog(hashtableContentLable.get(file.id));
+                // LogGeneratorClass_obj.GenerateLog(hashtableContentLable.get(file.id));
                 AppiumChromeAccess_obj.chromeCapabilities(deviceId, driver, wait, hashtableBlobUrl.get(file.id));
             }
 
         }
-        LogGeneratorClass_obj.GenerateLog("DownloadContents is successfull");
+        // LogGeneratorClass_obj.GenerateLog("DownloadContents is successfull");
     }
 
     // accessing the Whatsapp after downloading blobUrl contents
@@ -166,7 +167,7 @@ public class AppiumTest extends LogGeneratorClass {
                 hashtableContentLable, PhoneNumber);
 
         System.out.println("Content sends successfully sent .......");
-        LogGeneratorClass_obj.GenerateLog("Content sends successfully sent .......");
+        // LogGeneratorClass_obj.GenerateLog("Content sends successfully sent .......");
         /// driver.quit();
 
     }
@@ -209,17 +210,19 @@ public class AppiumTest extends LogGeneratorClass {
 
             }
             System.out.println("deviceId accessed value " + " " + "=" + " " + deviceId);
-            LogGeneratorClass_obj.GenerateLog("deviceId accessed value " + " " + "=" + " " + deviceId);
+            // LogGeneratorClass_obj.GenerateLog("deviceId accessed value " + " " + "=" + "
+            // " + deviceId);
         }
 
         Thread.sleep(2000);
 
         // Read any errors from the attempted command
         System.out.println("Here is the standard error of the command (if any):\n");
-        LogGeneratorClass_obj.GenerateLog("Here is the standard error of the command (if any):\n");
+        // LogGeneratorClass_obj.GenerateLog("Here is the standard error of the command
+        // (if any):\n");
         while ((s = stdError.readLine()) != null) {
             System.out.println(s);
-            LogGeneratorClass_obj.GenerateLog(s);
+            // LogGeneratorClass_obj.GenerateLog(s);
         }
     }
 

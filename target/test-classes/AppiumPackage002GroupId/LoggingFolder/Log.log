@@ -81,48 +81,34 @@ Oct 25, 2020 8:37:18 PM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass 
 INFO: * daemon started successfully
 Oct 27, 2020 11:21:56 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: Phonenumber Enter Value  = 8610980828
-Oct 27, 2020 11:38:23 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+Oct 27, 2020 11:50:23 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: Phonenumber Enter Value  = 8610980828
-Oct 27, 2020 11:38:25 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+Oct 27, 2020 11:50:25 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: ClusterId = "c44f0446-c26a-4918-a79f-08fcda1bda9f"
-Oct 27, 2020 11:38:26 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: templateString = [{"id":241,"text":"Text sending October 27th","templateName":null,"messageType":0,"clusterId":"c44f0446-c26a-4918-a79f-08fcda1bda9f","isDeleted":false,"status":1,"scheduledOn":"2020-10-27T00:00:00","createdOn":"2020-10-27T09:38:27.1802032","createdBy":null,"updatedOn":"2020-10-27T09:40:11.2281828","updatedBy":"Bavi-Editor","approvedBy":"Bavi-Editor","approvedOn":"2020-10-27T09:40:11.2281838","cluster":null,"fileSourceViewModels":[],"fileNames":[]},{"id":242,"text":"","templateName":null,"messageType":1,"clusterId":"c44f0446-c26a-4918-a79f-08fcda1bda9f","isDeleted":false,"status":1,"scheduledOn":"2020-10-27T00:00:00","createdOn":"2020-10-27T09:38:52.8267974","createdBy":null,"updatedOn":"2020-10-27T09:40:12.9902957","updatedBy":"Bavi-Editor","approvedBy":"Bavi-Editor","approvedOn":"2020-10-27T09:40:12.990296","cluster":null,"fileSourceViewModels":[{"id":"6ecf72ad-a96c-4b9a-a080-0006f061611a","fileName":"file_example_MP3_1MG.mp3","blobUrl":"https://stagewhatsappconnect.blob.core.windows.net/whatstemplateappfiles/file_example_MP3_1MG.mp3","mimeType":"audio/mpeg","fileType":4,"isDeleted":false,"createdOn":"2020-10-27T04:08:40.6707221"}],"fileNames":["file_example_MP3_1MG.mp3"]},{"id":243,"text":"","templateName":null,"messageType":1,"clusterId":"c44f0446-c26a-4918-a79f-08fcda1bda9f","isDeleted":false,"status":1,"scheduledOn":"2020-10-27T00:00:00","createdOn":"2020-10-27T09:39:07.3064808","createdBy":null,"updatedOn":"2020-10-27T09:40:13.9302184","updatedBy":"Bavi-Editor","approvedBy":"Bavi-Editor","approvedOn":"2020-10-27T09:40:13.9302188","cluster":null,"fileSourceViewModels":[{"id":"3f739ad9-3ac0-46ac-91b7-181ea146b686","fileName":"gupshup (1).png","blobUrl":"https://stagewhatsappconnect.blob.core.windows.net/whatstemplateappfiles/gupshup %281%29.png","mimeType":"image/png","fileType":0,"isDeleted":false,"createdOn":"2020-10-27T04:09:03.7001185"}],"fileNames":["gupshup (1).png"]},{"id":244,"text":"","templateName":null,"messageType":1,"clusterId":"c44f0446-c26a-4918-a79f-08fcda1bda9f","isDeleted":false,"status":1,"scheduledOn":"2020-10-27T00:00:00","createdOn":"2020-10-27T09:40:00.9717446","createdBy":null,"updatedOn":"2020-10-27T09:40:14.7586758","updatedBy":"Bavi-Editor","approvedBy":"Bavi-Editor","approvedOn":"2020-10-27T09:40:14.7586764","cluster":null,"fileSourceViewModels":[{"id":"28b18c16-6c1e-43fe-b12f-21fc23539eca","fileName":"WhatsApp Video 2020-10-20 at 5.49.04 PM.mp4","blobUrl":"https://stagewhatsappconnect.blob.core.windows.net/whatstemplateappfiles/WhatsApp Video 2020-10-20 at 5.49.04 PM.mp4","mimeType":"video/mp4","fileType":1,"isDeleted":false,"createdOn":"2020-10-27T04:09:17.7119879"}],"fileNames":["WhatsApp Video 2020-10-20 at 5.49.04 PM.mp4"]}]
-Oct 27, 2020 11:38:28 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+Oct 27, 2020 11:50:26 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+INFO: templateString = [{"id":245,"text":"Test sending ....","templateName":null,"messageType":0,"clusterId":"c44f0446-c26a-4918-a79f-08fcda1bda9f","isDeleted":false,"status":1,"scheduledOn":"2020-10-27T00:00:00","createdOn":"2020-10-27T11:48:40.5669578","createdBy":null,"updatedOn":"2020-10-27T11:48:46.3288697","updatedBy":"Bavi-Editor","approvedBy":"Bavi-Editor","approvedOn":"2020-10-27T11:48:46.3288701","cluster":null,"fileSourceViewModels":[],"fileNames":[]}]
+Oct 27, 2020 11:50:27 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: getGroups = https://stage-whatsappconnect-webapi.azurewebsites.net/Group/getGroupsByMobileNumber/8610980828
-Oct 27, 2020 11:38:31 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+Oct 27, 2020 11:50:30 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: deviceId accessed value  = null
-Oct 27, 2020 11:38:32 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+Oct 27, 2020 11:50:31 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: deviceId accessed value  = RZ8N81QR5FV
-Oct 27, 2020 11:38:33 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+Oct 27, 2020 11:50:32 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: deviceId accessed value  = 
-Oct 27, 2020 11:38:36 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+Oct 27, 2020 11:50:35 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: Here is the standard error of the command (if any):
 
-Oct 27, 2020 11:39:08 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: (//android.widget.ImageView[@content-desc="Video"])[1]
-Oct 27, 2020 11:39:31 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: chromeSettingClick is successfully
-Oct 27, 2020 11:39:35 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: Alreadydownload is not visible...
-Oct 27, 2020 11:39:55 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: downloadIconClick is successfully
-Oct 27, 2020 11:39:56 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: https://stagewhatsappconnect.blob.core.windows.net/whatstemplateappfiles/gupshup %281%29.png
-Oct 27, 2020 11:40:20 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: chromeSettingClick is successfully
-Oct 27, 2020 11:40:25 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: Alreadydownload is not visible...
-Oct 27, 2020 11:40:27 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: downloadIconClick is successfully
-Oct 27, 2020 11:40:28 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: null
-Oct 27, 2020 11:40:51 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: chromeSettingClick is successfully
-Oct 27, 2020 11:40:55 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: Alreadydownload is not visible...
-Oct 27, 2020 11:40:58 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
-INFO: downloadIconClick is successfully
-Oct 27, 2020 11:40:59 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+Oct 27, 2020 11:51:08 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: DownloadContents is successfull
-Oct 27, 2020 11:41:20 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+Oct 27, 2020 11:53:02 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
 INFO: Content sends successfully sent .......
+Oct 27, 2020 11:56:22 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+INFO: Phonenumber Enter Value  = 8610980828
+Oct 27, 2020 11:56:24 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+INFO: ClusterId = "c44f0446-c26a-4918-a79f-08fcda1bda9f"
+Oct 27, 2020 11:56:25 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+INFO: templateString = [{"id":246,"text":"Test flow Sending ...","templateName":null,"messageType":0,"clusterId":"c44f0446-c26a-4918-a79f-08fcda1bda9f","isDeleted":false,"status":1,"scheduledOn":"2020-10-27T00:00:00","createdOn":"2020-10-27T11:55:28.643553","createdBy":null,"updatedOn":"2020-10-27T11:55:33.0636601","updatedBy":"Bavi-Editor","approvedBy":"Bavi-Editor","approvedOn":"2020-10-27T11:55:33.0636606","cluster":null,"fileSourceViewModels":[],"fileNames":[]}]
+Oct 27, 2020 11:56:27 AM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+INFO: getGroups = https://stage-whatsappconnect-webapi.azurewebsites.net/Group/getGroupsByMobileNumber/8610980828
+Oct 27, 2020 12:00:42 PM AppiumPackage002GroupId.LoggingFolder.LogGeneratorClass GenerateLog
+INFO: No such host is known (stage-whatsappconnect-webapi.azurewebsites.net)
